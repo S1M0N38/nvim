@@ -38,3 +38,8 @@ vim.opt.fillchars.eob=" "
 vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
+
+
+-- add 100ms to Neovim startup time
+-- vim.opt.spell = true
+-- vim.opt.spelllang = "en,it"
