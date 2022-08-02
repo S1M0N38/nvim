@@ -8,13 +8,16 @@ and the reasoning behind my decision, take a took at commit messages:
 
 ## Requirements
 - Neovim ≥ 0.8
+- go ≥ 1.18.4
+- tectonic ≥ 0.9.0
+- Skim ≥ 1.6.11
 
 ## Features
 - Tree-like and fuzzy finder prjoject navigation
 - Autocompletions (with snippets)
 - Language Server Protocol
 - Tree-sitter
+- LaTeX support (lsp, build, forward/backward search)
 
 ## Roadmap
-- Add support for latex using tectonic for compilation
-- Lazy load spellsitter
+- Plugin lazy load
