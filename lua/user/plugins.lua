@@ -41,7 +41,7 @@ local plugins = function(use)
   use { "nvim-lua/plenary.nvim", commit = "986ad71ae930c7d96e812734540511b4ca838aa2" }
 
   -- -- Optimization: improve neovim startup time
-  use { "lewis6991/impatient.nvim", commit = "2aa872de40dbbebe8e2d3a0b8c5651b81fe8b235"}
+  use { "lewis6991/impatient.nvim", commit = "2aa872de40dbbebe8e2d3a0b8c5651b81fe8b235" }
 
   -- -- Colorschemes
   use { "ellisonleao/gruvbox.nvim", commit = "29c50f1327d9d84436e484aac362d2fa6bca590b" }
@@ -49,7 +49,7 @@ local plugins = function(use)
   -- -- File Navigation: tree and fuzzy finder
   use { "kyazdani42/nvim-tree.lua", commit = "665813b9e6e247c633346b861e08f03e44e3ac91" } -- tree navigation
   use { "nvim-telescope/telescope.nvim", commit = "b5833a682c511885887373aad76272ad70f7b3c2" } -- fuzzy finder
-  use { "nvim-telescope/telescope-fzy-native.nvim", commit = "7b3d2528102f858036627a68821ccf5fc1d78ce4"} -- improve sorting speed
+  use { "nvim-telescope/telescope-fzy-native.nvim", commit = "7b3d2528102f858036627a68821ccf5fc1d78ce4" } -- improve sorting speed
 
   -- -- Completions plugins (cmp)
   use { "hrsh7th/nvim-cmp", commit = "706371f1300e7c0acb98b346f80dad2dd9b5f679" } -- The completion plugin
@@ -65,7 +65,7 @@ local plugins = function(use)
 
   -- -- Langauge Server Protocol (lsp)
   use { "williamboman/mason.nvim", commit = "bf2442eaf6b116321dda12ee73a37c4e733eefb8" } -- lsp and dap installer
-  use { "williamboman/mason-lspconfig.nvim", commit = "05e70bc283471d27c905383a02185934a68ab496"} -- autoconfigure lspconfig using mason 
+  use { "williamboman/mason-lspconfig.nvim", commit = "05e70bc283471d27c905383a02185934a68ab496" } -- autoconfigure lspconfig using mason 
   use { "neovim/nvim-lspconfig", commit = "60f2993b9661d9844cee3bebdbd1b5860577eb3c" } -- lsp configurations
 
   -- -- TreeSitter (TS)
@@ -77,6 +77,13 @@ local plugins = function(use)
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
   use { "lewis6991/spellsitter.nvim", commit = "eb74c4b1f4240cf1a7860877423195cec6311bd5" }
+
+  -- Latex - enable backword search
+  -- take a look at lua/user/nvim-texlabconfig.lua for installation details
+  use { 'f3fora/nvim-texlabconfig',
+    commit = "128a4985c096c100b9889c45998487264cc53ec8",
+    run = "go build -o $GOPATH/bin/"
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
@@ -97,4 +104,3 @@ return packer.startup({
     },
   },
 })
-

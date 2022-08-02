@@ -109,6 +109,43 @@ mason_lspconfig.setup_handlers({
     })
   end,
 
+  ['texlab'] = function()
+    lspconfig.texlab.setup({
+      on_attach = opts.on_attach,
+      capabilities = opts.capabilities,
+
+      settings = {
+        texlab = {
+          rootDirectory = nil,
+          build = {
+            executable = "tectonic",
+
+            -- compile: compile a single .tex into a pdf
+            args = { "-X", "compile", "%f", "--synctex", "--keep-logs", "--keep-intermediates" },
+
+            -- build: search for Tectonic.toml in the current or in the parents directory and
+            --   compile the whole project based on toml configuration. At the moment tectonic
+            --   does not produce SyncTeX data when using built (keep and eye on this issue
+            --   https://github.com/tectonic-typesetting/tectonic/issues/889). I consider
+            --   forward search pretty important, so I plan to use `tectonic build` only
+            --   when synctex will be supported.
+            -- args = { "-X", "build", "--keep-intermediates", "--keep-logs" },
+
+            onSave = true,
+          },
+
+          -- only working with "tectonic -X compile"
+          -- Keep an eye on https://github.com/tectonic-typesetting/tectonic/issues/889
+          -- maybe Synctex will be added to "tectonic -X built"
+          forwardSearch = {
+            executable = "/Applications/Skim.app/Contents/SharedSupport/displayline",
+            args = { "-g", "%l", "%p", "%f" }
+          },
+        },
+      },
+    })
+  end,
+
   -- TODO add specific handlers for different languages
 })
 
