@@ -69,7 +69,7 @@ function LSP_KEYMAPS(bufnr)
   keymap("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", bufopts)
   keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", bufopts)
   keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", bufopts)
-  keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", bufopts)
+  keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", bufopts)
   keymap("n", "<leader>li", "<cmd>LspInfo<cr>", bufopts)
   keymap("n", "<leader>lI", "<cmd>LspInstallInfo<cr>", bufopts)
   keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", bufopts)
@@ -143,3 +143,6 @@ TS_KEYMAPS = {
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
+-- Dash
+keymap("n", "<leader>d", ":Dash<CR>", opts)
+keymap("n", "<leader>dd", ":Dash!<CR>", opts)

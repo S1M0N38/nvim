@@ -50,6 +50,11 @@ local plugins = function(use)
   use { "kyazdani42/nvim-tree.lua", commit = "665813b9e6e247c633346b861e08f03e44e3ac91" } -- tree navigation
   use { "nvim-telescope/telescope.nvim", commit = "b5833a682c511885887373aad76272ad70f7b3c2" } -- fuzzy finder
   use { "nvim-telescope/telescope-fzy-native.nvim", commit = "7b3d2528102f858036627a68821ccf5fc1d78ce4" } -- improve sorting speed
+  use {
+    'mrjones2014/dash.nvim',
+    commit = "f7402d1d96b126f8c678bd1d1d0102213c148eac",
+    run = 'make install',
+  }
 
   -- -- Completions plugins (cmp)
   use { "hrsh7th/nvim-cmp", commit = "706371f1300e7c0acb98b346f80dad2dd9b5f679" } -- The completion plugin
